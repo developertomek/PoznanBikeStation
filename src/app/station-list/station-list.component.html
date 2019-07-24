@@ -1,0 +1,19 @@
+<ul class="list">
+    <li *ngFor="let station of stations.features" class="station">
+        <h4 class="station__label">{{ station.id}} {{ station.properties.label }}</h4>
+        <div class="station__bike">
+            <img src="assets/img/bicycle.png" width="40" alt="bike"> 
+            <p>dostępne rowery</p>
+            <p class="station__bike__number">
+                {{ station.properties.bikes }}
+            </p>
+        </div>
+        <div class="station__rack">
+            <img src="assets/img/unlocked.png" width="40" alt="free_rack"> 
+            <p>dostępne miejsca</p>
+            <p class="station__rack__number">
+                {{ station.properties.free_racks }}
+            </p>
+        </div>
+    </li>
+</ul>
