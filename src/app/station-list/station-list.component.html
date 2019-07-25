@@ -1,5 +1,5 @@
 <ul class="list">
-    <li *ngFor="let station of stations.features" class="station">
+    <li (click)="onSelect(i)" *ngFor="let station of stations.features; let i = index" class="station">
         <h4 class="station__label">{{ station.id}} {{ station.properties.label }}</h4>
         <div class="station__bike">
             <img src="assets/img/bicycle.png" width="40" alt="bike"> 

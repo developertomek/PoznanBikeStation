@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-station-list',
@@ -12,10 +14,14 @@ export class StationListComponent implements OnInit {
   
   stations: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.http.get(this.url)
-      .subscribe(data => (this.stations = data))
+      .subscribe(data => (this.stations = data));
+  }
+
+  onSelect(place) {
+    this.router.navigate(['/station', place])
   }
 }
