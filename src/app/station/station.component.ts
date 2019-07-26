@@ -15,9 +15,12 @@ export class StationComponent implements OnInit {
 
   private url = 'http://www.poznan.pl/mim/plan/map_service.html?mtype=pub_transport&co=stacje_rowerowe';
   
-  latitude = 52.3992702;
-  longitude = 16.9199655;
-
+  // latitude = 52.3992702;
+  // longitude = 16.9199655;
+  latitude;
+  longitude;
+  summit;
+  
   constructor(private http: HttpClient, private router: ActivatedRoute) {       
   }
   
@@ -29,20 +32,24 @@ export class StationComponent implements OnInit {
     this.http.get(this.url)
     .subscribe(data => {
       this.stations = data;
-      this.latitude = this.stations.features[this.stationIndex].geometry.coordinates[0];
-      this.longitude = this.stations.features[this.stationIndex].geometry.coordinates[1];
+      this.latitude = this.stations.features[this.stationIndex].geometry.coordinates[1];
+      this.longitude = this.stations.features[this.stationIndex].geometry.coordinates[0];
+
+      console.log(this.longitude);
+      console.log(this.latitude);
+
+      this.summit = marker([this.latitude, this.longitude], {
+        icon: icon({
+          iconSize: [ 40, 40 ],
+          iconAnchor: [ 13, 41 ],
+          iconUrl: './assets/img/location.png',
+        })
+      });
     });
   }
   
-  summit = marker([this.latitude, this.longitude], {
-    icon: icon({
-      iconSize: [ 40, 40 ],
-      iconAnchor: [ 13, 41 ],
-      iconUrl: './assets/img/location.png',
-    })
-  });
 
-  options = {
+ options = {
     layers: [
       tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?key=HfiQgsMsSnorjEs2Sxek', {
         attribution: '&copy; OpenStreetMap contributors'
@@ -50,6 +57,6 @@ export class StationComponent implements OnInit {
       this.summit
     ],
     zoom: 11,
-    center: latLng([this.latitude, this.longitude]) 
+    center: latLng([52.3992702, 16.9199655]) 
   };  
 }
