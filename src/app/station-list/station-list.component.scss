@@ -1,45 +1,8 @@
-.list {
-    list-style-type: none;
-    padding: 0 25px 25px 25px;
+h1 {
+    text-align: center;
+    margin: 50px 0;
+}
 
-    .station {
-        background-color: #ffffff;
-        padding: 25px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        display: flex;
-        flex-wrap: wrap;
-
-        &__label {
-            font-size: 30px;
-            color: #303030;
-            width: 100%;
-        }
-
-        &__bike {
-            width: 50%;
-            text-align: center;
-
-            &__number {
-                color: #77d6a3;
-                font-size: 60px;
-                font-weight: bold;
-            }
-        }
-
-        &__rack {
-            width: 50%;
-            text-align: center;
-
-            &__number {
-                font-size: 60px;
-                font-weight: bold;
-            }
-        }
-
-        // 77d6a3
-        // 565656 jasniejszy liczba wolnych trakow
-        // 303030 ciemny
-
-    }
+.station:hover {
+    cursor: pointer;
 }

@@ -13,6 +13,7 @@ export class StationListComponent implements OnInit {
   private url = 'http://www.poznan.pl/mim/plan/map_service.html?mtype=pub_transport&co=stacje_rowerowe';
   
   stations: any;
+  title = "Stacje rowerowe w Poznaniu";
 
   constructor(private http: HttpClient, private router: Router) { }
 

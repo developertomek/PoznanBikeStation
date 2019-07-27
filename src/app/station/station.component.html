@@ -1,6 +1,29 @@
-<p>station {{ stationIndex }} works!</p>
-<div class="map"
-     leaflet
-     [leafletOptions]="options">
+<div class="nav">
+    <div class="nav__icon">
+        <a routerLink="/"><img src="assets/img/left-arrow.png" width="25" alt="arrow"></a>
+    </div>
 </div>
 
+<div id="map"></div>
+
+<div class="list">
+    <div class="station">
+        <h4 class="station__label">
+            {{ stations.features[stationIndex].id}} {{ stations.features[stationIndex].properties.label }}
+        </h4>
+        <div class="station__bike">
+            <img src="assets/img/bicycle.png" width="40" alt="bike"> 
+            <p>dostępne rowery</p>
+            <p class="station__bike__number">
+                {{ stations.features[stationIndex].properties.bikes }}
+            </p>
+        </div>
+        <div class="station__rack">
+            <img src="assets/img/unlocked.png" width="40" alt="free_rack"> 
+            <p>dostępne miejsca</p>
+            <p class="station__rack__number">
+                {{ stations.features[stationIndex].properties.free_racks }}
+            </p>
+        </div>
+    </div>
+</div>

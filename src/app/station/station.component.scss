@@ -1,5 +1,27 @@
-.map {
-    height: 300px !important;
-    width: 500px !important;
-    position: absolute;
+#map {
+  height: 300px;
+  max-width: 600px;
+  position: relative;
+  margin: auto;
+}
+
+.nav{
+  width: 100%;
+  background-color: #303030;
+  padding: 10px 0;
+
+  &__icon{
+    max-width: 600px;
+    margin: auto;
+    padding-left: 20px;
   }
+}
+
+.list {
+  padding: 0;
+
+  .station {
+    border-radius: 0px;
+    margin: auto;
+  }
+}
